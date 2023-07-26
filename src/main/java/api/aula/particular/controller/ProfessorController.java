@@ -6,6 +6,8 @@ import api.aula.particular.professor.Professor;
 import api.aula.particular.professor.ProfessorRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,7 +27,7 @@ public class ProfessorController {
     }
 
     @GetMapping
-    public List<DadosListagemProfessor> listar(){
-        return repository.findAll().stream().map(DadosListagemProfessor::new).toList(); //.stream().mal() converte de professor para Record e retornando em lista
+    public Page<DadosListagemProfessor> listar(Pageable paginacao){
+        return repository.findAll(paginacao).map(DadosListagemProfessor::new); //.stream().mal() converte de professor para Record e retornando em lista
     }
 }
