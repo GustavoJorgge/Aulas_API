@@ -1,15 +1,15 @@
 package api.aula.particular.controller;
 
 import api.aula.particular.professor.DadosCadastroProfessor;
+import api.aula.particular.professor.DadosListagemProfessor;
 import api.aula.particular.professor.Professor;
 import api.aula.particular.professor.ProfessorRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("professores")
@@ -24,4 +24,8 @@ public class ProfessorController {
        repository.save(new Professor(dados));
     }
 
+    @GetMapping
+    public List<DadosListagemProfessor> listar(){
+        return repository.findAll().stream().map(DadosListagemProfessor::new).toList(); //.stream().mal() converte de professor para Record e retornando em lista
+    }
 }
