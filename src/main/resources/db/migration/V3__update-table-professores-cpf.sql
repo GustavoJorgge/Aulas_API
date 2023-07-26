@@ -1,0 +1,1 @@
+ALTER TABLE professores ALTER COLUMN cpf TYPE VARCHAR(11);

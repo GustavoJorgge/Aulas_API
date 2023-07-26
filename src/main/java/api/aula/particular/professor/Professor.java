@@ -21,7 +21,7 @@ public class Professor {
     private Long id;
     private String nome;
     private String email;
-    private Integer cpf;
+    private String cpf;
     @Enumerated(EnumType.STRING)
     private Disciplina disciplina;
     @Embedded
