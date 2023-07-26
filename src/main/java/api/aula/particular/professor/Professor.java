@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 
 //Esta classe professor é uma entidade JPA (Java Persistence API)
 
-@Table(name = "professor")
+@Table(name = "professores")
 @Entity (name = "Professor")
 @Getter
 @NoArgsConstructor
@@ -31,6 +31,7 @@ public class Professor {
         this.nome = dados.nome();
         this.email = dados.email();
         this.cpf = dados.cpf();
+        this.disciplina = dados.disciplina();
         this.endereco = new Endereco(dados.endereco());
     }
 }

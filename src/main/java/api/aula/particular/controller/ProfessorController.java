@@ -18,7 +18,7 @@ public class ProfessorController {
     private ProfessorRepository repository;
 
     @PostMapping //Quando chegar uma requisição do tipo Post, ira chamar este metodo
-    @Transactional // Anotação para transações 
+    @Transactional // Anotação para transações
     public void cadastrar(@RequestBody DadosCadastroProfessor dados){ //Anotação para receber o corpo da requisição
        repository.save(new Professor(dados));
     }
