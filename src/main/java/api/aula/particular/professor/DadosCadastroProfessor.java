@@ -14,6 +14,9 @@ public record DadosCadastroProfessor(
         @NotBlank
         @Email
         String email,
+
+        @NotBlank
+        String telefone,
         @Pattern(regexp = "\\d{11}") //Expressão regular para cpf (deve ser 11 digitos)
         String cpf,
         @NotNull
