@@ -8,6 +8,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,7 +28,7 @@ public class ProfessorController {
     }
 
     @GetMapping
-    public Page<DadosListagemProfessor> listar(Pageable paginacao){
+    public Page<DadosListagemProfessor> listar(@PageableDefault(size = 10, sort = {"nome"})Pageable paginacao){
         return repository.findAll(paginacao).map(DadosListagemProfessor::new); //.stream().mal() converte de professor para Record e retornando em lista
     }
 }
