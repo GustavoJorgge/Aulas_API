@@ -1,9 +1,6 @@
 package api.aula.particular.controller;
 
-import api.aula.particular.professor.DadosCadastroProfessor;
-import api.aula.particular.professor.DadosListagemProfessor;
-import api.aula.particular.professor.Professor;
-import api.aula.particular.professor.ProfessorRepository;
+import api.aula.particular.professor.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -31,4 +28,12 @@ public class ProfessorController {
     public Page<DadosListagemProfessor> listar(@PageableDefault(size = 10, sort = {"nome"})Pageable paginacao){
         return repository.findAll(paginacao).map(DadosListagemProfessor::new); //.stream().mal() converte de professor para Record e retornando em lista
     }
+
+    @PutMapping
+    @Transactional
+    public void atualizar(@RequestBody @Valid DadosAtualizaProfessor dados){
+        var professor = repository.getReferenceById(dados.id());
+        professor.atualizarDados(dados);
+    }
+
 }

@@ -32,4 +32,17 @@ public class Aluno {
         this.endereco = new Endereco(dados.endereco());
     }
 
+    public void atualizarDados(DadosAtualizaAluno dados) {
+
+        if(dados.nome()!= null){
+            this.nome = dados.nome();
+        }
+        if(dados.email()!=null){
+            this.nome = dados.email();
+        }
+        if(dados.cpf()!=null){
+            this.nome = dados.cpf();
+        }
+
+    }
 }

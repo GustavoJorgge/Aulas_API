@@ -1,9 +1,9 @@
 package api.aula.particular.aluno;
 
-public record DadosListagemAluno(String nome, String email, String cpf) {
+public record DadosListagemAluno(Long id, String nome, String email, String cpf) {
 
     public DadosListagemAluno(Aluno aluno){
-        this(aluno.getNome(), aluno.getEmail(), aluno.getCpf());
+        this(aluno.getId(), aluno.getNome(), aluno.getEmail(), aluno.getCpf());
     }
 
 }

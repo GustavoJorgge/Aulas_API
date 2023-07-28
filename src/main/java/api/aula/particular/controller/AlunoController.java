@@ -1,9 +1,6 @@
 package api.aula.particular.controller;
 
-import api.aula.particular.aluno.Aluno;
-import api.aula.particular.aluno.AlunoRepository;
-import api.aula.particular.aluno.DadosCadastroAluno;
-import api.aula.particular.aluno.DadosListagemAluno;
+import api.aula.particular.aluno.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -28,6 +25,13 @@ public class AlunoController {
     @GetMapping
     public Page<DadosListagemAluno> listar (@PageableDefault(size = 10, sort = {"nome"}) Pageable paginacao){
         return repository.findAll(paginacao).map(DadosListagemAluno::new);
+    }
+
+    @PutMapping
+    @Transactional
+    public void atualizar(@RequestBody @Valid DadosAtualizaAluno dados){
+        var aluno = repository.getReferenceById(dados.id());
+        aluno.atualizarDados(dados);
     }
 
 }
