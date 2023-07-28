@@ -1,6 +1,7 @@
 package api.aula.particular.controller;
 
 import api.aula.particular.aluno.*;
+import jakarta.transaction.TransactionScoped;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -32,6 +33,12 @@ public class AlunoController {
     public void atualizar(@RequestBody @Valid DadosAtualizaAluno dados){
         var aluno = repository.getReferenceById(dados.id());
         aluno.atualizarDados(dados);
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void deletar(@PathVariable Long id){
+        repository.deleteById(id);
     }
 
 }

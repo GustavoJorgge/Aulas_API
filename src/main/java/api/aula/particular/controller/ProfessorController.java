@@ -36,4 +36,10 @@ public class ProfessorController {
         professor.atualizarDados(dados);
     }
 
+    @DeleteMapping("/{id}") //parametro dinamico
+    @Transactional
+    public void deletar(@PathVariable Long id){
+        repository.deleteById(id);
+    }
+
 }
