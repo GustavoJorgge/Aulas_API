@@ -26,7 +26,7 @@ public class ProfessorController {
 
     @GetMapping
     public Page<DadosListagemProfessor> listar(@PageableDefault(size = 10, sort = {"nome"})Pageable paginacao){
-        return repository.findAll(paginacao).map(DadosListagemProfessor::new); //.stream().mal() converte de professor para Record e retornando em lista
+        return repository.findAllByAtivoTrue(paginacao).map(DadosListagemProfessor::new); //.stream().mal() converte de professor para Record e retornando em lista
     }
 
     @PutMapping
@@ -39,7 +39,8 @@ public class ProfessorController {
     @DeleteMapping("/{id}") //parametro dinamico
     @Transactional
     public void deletar(@PathVariable Long id){
-        repository.deleteById(id);
+        var professor = repository.getReferenceById(id);
+        professor.excluir();
     }
 
 }

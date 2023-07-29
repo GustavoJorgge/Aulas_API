@@ -24,7 +24,10 @@ public class Aluno {
     @Embedded
     private Endereco endereco;
 
+    private Boolean ativo;
+
     public Aluno(DadosCadastroAluno dados){
+        this.ativo = true;
         this.nome = dados.nome();
         this.email = dados.email();
         this.telefone = dados.telefone();
@@ -44,5 +47,9 @@ public class Aluno {
             this.nome = dados.cpf();
         }
 
+    }
+
+    public void excluir() {
+        this.ativo = false;
     }
 }

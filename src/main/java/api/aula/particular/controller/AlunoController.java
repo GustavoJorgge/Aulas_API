@@ -25,7 +25,7 @@ public class AlunoController {
 
     @GetMapping
     public Page<DadosListagemAluno> listar (@PageableDefault(size = 10, sort = {"nome"}) Pageable paginacao){
-        return repository.findAll(paginacao).map(DadosListagemAluno::new);
+        return repository.findAllByAtivoTrue(paginacao).map(DadosListagemAluno::new);
     }
 
     @PutMapping
@@ -38,7 +38,8 @@ public class AlunoController {
     @DeleteMapping("/{id}")
     @Transactional
     public void deletar(@PathVariable Long id){
-        repository.deleteById(id);
+        var aluno = repository.getReferenceById(id);
+        aluno.excluir();
     }
 
 }
