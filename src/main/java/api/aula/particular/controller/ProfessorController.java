@@ -55,4 +55,12 @@ public class ProfessorController {
         return ResponseEntity.noContent().build();
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity detalhar(@PathVariable Long id){
+        var professor = repository.getReferenceById(id);
+
+        return ResponseEntity.ok(new DadosDetalhesProf(professor));
+    }
+
+
 }

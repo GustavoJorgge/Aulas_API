@@ -59,4 +59,11 @@ public class AlunoController {
         return ResponseEntity.noContent().build();
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity detalhar(@PathVariable Long id){
+        var aluno = repository.getReferenceById(id);
+
+        return ResponseEntity.ok(new DadosDetalhesAluno(aluno));
+    }
+
 }
