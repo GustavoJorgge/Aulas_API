@@ -11,16 +11,18 @@ public record DadosCadastroProfessor(
 
         @NotBlank
         String nome,
-        @NotBlank
-        @Email
+        @NotBlank(message = "O E-mail é obrigatorio!")
+        @Email(message = "Formato invalido!")
         String email,
 
-        @NotBlank
+        @NotBlank (message = "O Telefone é obrigatorio!")
         String telefone,
-        @Pattern(regexp = "\\d{11}") //Expressão regular para cpf (deve ser 11 digitos)
+        @NotBlank(message = "O CPF é Obrigatorio")
+        @Pattern(regexp = "\\d{11}", message = "Formato de CPF invalido!") //Expressão regular para cpf (deve ser 11 digitos)
         String cpf,
-        @NotNull
+        @NotNull (message = "Disciplina é obrigatoria!")
         Disciplina disciplina,
-        @NotNull @Valid
+        @NotNull(message = "O endereço é obrigatorio!")
+        @Valid
         DadosEndereco endereco) {
 }
