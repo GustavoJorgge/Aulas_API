@@ -1,6 +1,9 @@
 package api.aula.particular.controller;
 
-import api.aula.particular.aluno.*;
+import api.aula.particular.domain.aluno.*;
+import api.aula.particular.domain.aluno.Aluno;
+import api.aula.particular.domain.aluno.AlunoRepository;
+import api.aula.particular.domain.aluno.DadosListagemAluno;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

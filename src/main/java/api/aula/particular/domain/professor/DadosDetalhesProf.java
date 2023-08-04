@@ -1,6 +1,6 @@
-package api.aula.particular.professor;
+package api.aula.particular.domain.professor;
 
-import api.aula.particular.endereco.Endereco;
+import api.aula.particular.domain.endereco.Endereco;
 
 public record DadosDetalhesProf(Long id, String nome, String email, String telefone, String cpf, Disciplina disciplina, Endereco endereco) {
 

@@ -1,4 +1,4 @@
-package api.aula.particular.professor;
+package api.aula.particular.domain.professor;
 
 public record DadosListagemProfessor(Long id, String nome, String email, String cpf, Disciplina disciplina) {
 

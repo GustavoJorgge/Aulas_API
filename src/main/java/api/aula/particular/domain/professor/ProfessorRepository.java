@@ -1,10 +1,8 @@
-package api.aula.particular.professor;
+package api.aula.particular.domain.professor;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import java.util.Optional;
 
 //Nesta linha estamos criando uma interface que herda da JpaRepository
 //Entre <Classe,Tipo Classe> colocamos a Entidade e o tipo do id

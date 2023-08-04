@@ -1,4 +1,4 @@
-package api.aula.particular.endereco;
+package api.aula.particular.domain.endereco;
 // Esta é uma classe entidade JPA
 
 import jakarta.persistence.Embeddable;

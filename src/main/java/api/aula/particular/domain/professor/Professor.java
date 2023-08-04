@@ -1,6 +1,6 @@
-package api.aula.particular.professor;
+package api.aula.particular.domain.professor;
 
-import api.aula.particular.endereco.Endereco;
+import api.aula.particular.domain.endereco.Endereco;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

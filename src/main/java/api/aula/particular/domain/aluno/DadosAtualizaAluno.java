@@ -1,4 +1,4 @@
-package api.aula.particular.aluno;
+package api.aula.particular.domain.aluno;
 
 import jakarta.validation.constraints.NotNull;
 

@@ -1,4 +1,4 @@
-package api.aula.particular.aluno;
+package api.aula.particular.domain.aluno;
 
 public record DadosListagemAluno(Long id, String nome, String email, String cpf) {
 

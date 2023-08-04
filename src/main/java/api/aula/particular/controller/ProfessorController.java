@@ -1,6 +1,9 @@
 package api.aula.particular.controller;
 
-import api.aula.particular.professor.*;
+import api.aula.particular.domain.professor.DadosListagemProfessor;
+import api.aula.particular.domain.professor.Professor;
+import api.aula.particular.domain.professor.ProfessorRepository;
+import api.aula.particular.domain.professor.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -10,8 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("professores")
