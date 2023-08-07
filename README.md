@@ -11,4 +11,4 @@
 - **Spring Data JPA**: Biblioteca para simplificar o acesso ao Banco de dados
 - **Flyway**: Dependendcia para gerenciar a evolução do Banco de Dados
 - **Validation**: Dependencia para validação de dados e Requisitos
-
+- **Spring Security**: Dependencia de Segurança da API Rest 
