@@ -1,4 +1,4 @@
-package api.aula.particular.infra;
+package api.aula.particular.infra.exception;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.ResponseEntity;
