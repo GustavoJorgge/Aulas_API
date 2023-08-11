@@ -2,6 +2,7 @@ package api.aula.particular.controller;
 
 import api.aula.particular.domain.usuario.DadosAutenticacao;
 import api.aula.particular.domain.usuario.Usuario;
+import api.aula.particular.infra.security.DadosTokenJWT;
 import api.aula.particular.infra.security.TokenService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,10 +27,10 @@ public class AutenticacaoController {
     @PostMapping
     public ResponseEntity realizarLogin(@RequestBody @Valid DadosAutenticacao dados){
 
-        var token = new UsernamePasswordAuthenticationToken(dados.login(), dados.senha()); //classe para receber dados de login
-        var authentication = manager.authenticate(token); // convertendo dto e armazenando o objeto do usuario authenticado no sistema
-
-        return ResponseEntity.ok(tokenService.geraToken((Usuario) authentication.getPrincipal()));
+        var authenticationToken = new UsernamePasswordAuthenticationToken(dados.login(), dados.senha()); //classe para receber dados de login
+        var authentication = manager.authenticate(authenticationToken); // convertendo dto e armazenando o objeto do usuario authenticado no sistema
+        var tokenJWT = tokenService.geraToken((Usuario) authentication.getPrincipal());
+        return ResponseEntity.ok(new DadosTokenJWT(tokenJWT));
     }
 
 }
