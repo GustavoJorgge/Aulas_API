@@ -7,6 +7,7 @@
 - **Insomnia**
 - **PostGre**
 - **Web Tokens**
+- **autenticação da requisição**
 ## Principais Dependencias:
 - **Spring Web**: Dependencia de aplicações Web.
 - **Spring Data JPA**: Biblioteca para simplificar o acesso ao Banco de dados
