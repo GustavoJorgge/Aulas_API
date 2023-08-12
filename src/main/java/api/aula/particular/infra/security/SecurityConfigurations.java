@@ -32,6 +32,23 @@ public class SecurityConfigurations {
                 .build(); //desabilitando o formulario padrao do Spring e desbloqueando as urls para personalizar a configuração
     }
 
+    /*
+   METODO PARA CONFIGURAR CONTROLE DE ACESSOS APENAS PARA ADMIN
+   @Bean
+   public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        return http.csrf().disable()
+            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+            .and().authorizeHttpRequests()
+            .requestMatchers(HttpMethod.POST, "/login").permitAll()
+            .requestMatchers(HttpMethod.DELETE, "/medicos").hasRole("ADMIN")
+            .requestMatchers(HttpMethod.DELETE, "/pacientes").hasRole("ADMIN")
+            .anyRequest().authenticated()
+            .and().addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
+            .build();
+
+    }
+     */
+
     @Bean //Serve para exportar uma classe para o Spring, fazendo com que ele consiga carrega-la e realize sua injeção de dependecia em outras classes
     public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception{
         return configuration.getAuthenticationManager();//Cria objeto do tipo AuthenticationManager
