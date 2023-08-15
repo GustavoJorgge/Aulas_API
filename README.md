@@ -1,6 +1,6 @@
 # API de Aplicação Aulas Particulares
 ## Fala Pessoal! 👋
-> Status do projeto: Em desenvolvimento!
+> Status do projeto: Em desenvolvimento
 ### Estou criando esta API focada apenas no BackEnd de uma aplicação de Aulas Particulares utilizando framework Spring🍃.
 ## Para testar esta API:
 > Foi se utilizado o framework Insomnia
