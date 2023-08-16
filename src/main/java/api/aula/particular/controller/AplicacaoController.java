@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AplicacaoController {
 
     //trabalhando na nova branch
+    //rebase1
 
     @GetMapping
     public String teste(){
