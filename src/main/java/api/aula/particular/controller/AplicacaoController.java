@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping ("/hello") //mapeando a requisição
 public class AplicacaoController {
 
+    //trabalhando na nova branch
+
     @GetMapping
     public String teste(){
         return "Testando Requisição!";
