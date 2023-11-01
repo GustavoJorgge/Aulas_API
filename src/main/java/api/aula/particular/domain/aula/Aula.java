@@ -1,5 +1,6 @@
 package api.aula.particular.domain.aula;
 
+import api.aula.particular.domain.aluno.Aluno;
 import api.aula.particular.domain.professor.Professor;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -24,6 +25,10 @@ public class Aula {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "professor_id")
     private Professor professor;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "aluno_id")
+    private Aluno aluno;
 
     private LocalDateTime data;
 }
