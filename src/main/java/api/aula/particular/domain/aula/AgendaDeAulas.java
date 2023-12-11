@@ -32,14 +32,22 @@ public class AgendaDeAulas {
         }
 
         var professor = escolheProfessor(dados);
-        var aluno = alunoRepository.findById(dados.idAluno()).get();
+        var aluno = alunoRepository.getReferenceById(dados.idAluno());
         var aula = new Aula(null, professor, aluno, dados.data());
 
         aulaRepository.save(aula);
     }
 
     private Professor escolheProfessor(DadosAgendamentoAula dados) {
-        
+        if(dados.idProfessor()!=null){
+            return professorRepository.getReferenceById(dados.idProfessor());
+        }
+
+        if(dados.disciplina() == null){
+            throw new ValidacaoException("A disciplina é obrigatoria quando não houver um professor");
+        }
+
+        return professorRepository.escolherProfessorLivre(dados.disciplina(), dados.data());
     }
 
 }
