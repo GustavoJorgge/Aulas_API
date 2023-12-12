@@ -25,4 +25,12 @@ public interface ProfessorRepository extends JpaRepository<Professor,Long> {
             limit 1
             """)
     Professor escolherProfessorLivre(Disciplina disciplina, LocalDateTime data);
+
+    @Query("""
+            select p.ativo
+            from professores p
+            where 
+            p.id = :id
+            """)
+    Boolean findAtivoById(Long idProfessor);
 }
